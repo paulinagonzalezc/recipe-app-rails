@@ -33,3 +33,6 @@
 # Database
 
 /config/database.yml
+
+# Node_modules
+node_modules/
