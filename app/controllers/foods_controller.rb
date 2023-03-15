@@ -1,14 +1,10 @@
 class FoodsController < ApplicationController
-  load_and_authorize_resource
-  before_action :set_food, only: %i[show destroy]
+  before_action :authenticate_user!
 
   def index
-    if user_signed_in?
-      @food = Food.includes(:user).where(user_id: current_user.id)
-    else
-      redirect_to user_session_path
-    end
+    @foods = current_user.foods.order(created_at: :desc)
   end
+ 
 
   def new
     @food = Food.new
@@ -43,3 +39,5 @@ class FoodsController < ApplicationController
     params.require(:food).permit(:name, :measurement_unit, :quantity, :price)
   end
 end
+
+
