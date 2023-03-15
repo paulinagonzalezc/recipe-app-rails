@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   
   post 'recipes/:id/toggle', to: 'recipes#toggle', as: :toggle_recipe
 
-
+  resources :users do
+    resources :foods, only: [:index, :show, :new, :create, :destroy]
+  end
   # Defines the root path route ("/")
   root "foods#index"
 end
