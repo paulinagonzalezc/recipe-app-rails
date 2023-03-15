@@ -4,7 +4,6 @@ class FoodsController < ApplicationController
   def index
     @foods = current_user.foods.order(created_at: :desc)
   end
- 
 
   def new
     @food = Food.new
@@ -39,5 +38,3 @@ class FoodsController < ApplicationController
     params.require(:food).permit(:name, :measurement_unit, :quantity, :price)
   end
 end
-
-
