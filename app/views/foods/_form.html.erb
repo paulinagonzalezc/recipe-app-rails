@@ -18,6 +18,13 @@
   </div>
 
   <div>
+    <%= form.label :quantity, class: "form-label" %>
+    <div>
+      <%= form.text_field :quantity, autofocus: true, class: "form-control", required: true %>
+    </div>
+  </div>
+
+  <div>
     <%= form.label :price, class: "form-label" %>
     <div>
       <%= form.number_field :price, autofocus: true, class: "form-control", required: true, min: 1 %>
