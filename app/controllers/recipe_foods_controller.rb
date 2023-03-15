@@ -1,22 +1,11 @@
 class RecipeFoodsController < ApplicationController
-  load_and_authorize_resource
-
+  before_action :authenticate_user!
   before_action :find_recipe
-  before_action :find_user
-  before_action :find_food
+  before_action :authorize_recipe_access
 
   def index
-    if can? :manage, @recipe
-      @foods = @user.foods.all
-      @recipe_foods = RecipeFood.all
-      puts 'Can Manage'
-    else
-      puts 'Can Not Manage'
-      @recipe_foods = []
-      @foods = []
-      flash[:alert] = 'Un Authorized'
-      redirect_to recipe_path(id: @recipe.id)
-    end
+    @recipe_food = RecipeFood.new
+    @recipe_id = params[:recipe_id]
   end
 
   def show
@@ -24,20 +13,19 @@ class RecipeFoodsController < ApplicationController
   end
 
   def new
-    @foods = @user.foods.all
+    @foods = current_user.foods.all
     @recipe_food = RecipeFood.new
+    @recipe = Recipe.find(params[:recipe_id])
   end
 
   def edit
-    return if can? :edit, @recipe
-
-    flash[:alert] = 'Un Authorized'
-    redirect_to recipe_path(id: @recipe.id)
+    @recipe = Recipe.find(params[:recipe_id])
+    @recipe_food = @recipe.recipe_foods.find(params[:id])
   end
 
   def update
     @recipe_food = RecipeFood.find_by_id(params[:id])
-    @recipe_food.quantity = params[:quantity]
+    @recipe_food.quantity = recipe_food_params[:quantity]
     if @recipe_food.save
       redirect_to recipe_path(@recipe), notice: 'Recipe Food was updated successfully'
     else
@@ -67,23 +55,22 @@ class RecipeFoodsController < ApplicationController
         render :new, status: 400
       end
     else
-      flash[:alert] = 'Un Authorized'
+      flash[:alert] = 'ized'
       redirect_to recipe_path(id: @recipe.id)
     end
   end
 
   private
 
-  def find_user
-    @user = current_user
-  end
-
   def find_recipe
     @recipe = Recipe.find_by_id(params[:recipe_id])
   end
 
-  def find_food
-    @food = Food.find_by_id(params[:food_id])
+  def authorize_recipe_access
+    if @recipe.present? && current_user != @recipe.user
+      flash[:alert] = 'You are not authorized to modify this recipe'
+      redirect_to recipe_path(id: @recipe.id)
+    end
   end
 
   def recipe_food_params
