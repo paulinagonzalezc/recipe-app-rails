@@ -15,7 +15,9 @@
   </div>
 
   <div class="buttons">
+    <%# link_to "Generate shooping list", shoppinglist_index_path(recipe_id: @recipe.id) %>
     <button>Generate Shopping List</button>
+    <%# link_to 'Add ingredient', recipe_foods_path(recipe_id: @recipe.id) %>
     <button>Add ingredient</button>
   </div>
   
@@ -26,5 +28,16 @@
       <div class="list_food title">Value</div>
       <div class="list_food title">Actions</div>
     </div>
-  </div>
+    <% @recipe_foods.each do |recipe_food| %>
+      <div class="food">
+        <p><%= recipe_food.food.name %></p>
+        <p><%= recipe_food.quantity %></p>
+        <p>$<%= recipe_food.food.price * recipe_food.quantity %></p>
+        <div>
+          <div class="food_btn_spc"><%= link_to image_tag("edit.png"),  edit_recipe_food_path(recipe_id: @recipe.id, id: recipe_food.id) %></div>
+          <div><%= button_to image_tag("remove.png"), recipe_food_path(recipe_id: @recipe.id, id: recipe_food.id), method: :delete, class: 'remove_btn' %></div>
+        </div>
+      </div>
+    <% end %>
+    </div>
 </div>
