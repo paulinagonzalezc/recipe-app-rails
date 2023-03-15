@@ -1,0 +1,22 @@
+<div>
+  <h3> Add Food</h3>
+  <%= form_with url: foods_path, scope: :food do |form| %>
+    <div >
+    <%= form.label :Name %><br>
+    <%= form.text_field :name, class: "form-control", require: true %>
+    </div>
+    <div>
+    <%= form.label :Measurement_Unit %><br>
+    <%= form.text_field :measurement_unit, class: "form-control", require: true %>
+    </div>
+    <div>
+    <%= form.label :Price %><br>
+    <%= form.number_field :price, class: "form-control", require: true %>
+    </div>
+    <div>
+    <%= form.label :Quantity %><br>
+    <%= form.number_field :quantity, class: "form-control", require: true %>
+    </div>
+    <%= form.submit "Submit" %>
+  <% end %>
+</div>
