@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Ability
   include CanCan::Ability
 
@@ -10,7 +8,7 @@ class Ability
     # allow everyone to read public recipes
     can :read, Recipe, public: true
     can :read, :all
-    
+
     if user.admin?
       can :manage, :all
     else

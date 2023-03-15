@@ -1,15 +1,119 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+/* General */
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.sign-main {
+  margin: 1rem;
+}
+
+/* Recipes views */
+
+.recipes-container {
+  max-width: 70rem;
+  margin: 2rem auto;
+  padding: 3rem 1.5rem;
+
+  /* box-shadow: rgba(67, 71, 85, 0.27) 0 0 0.25em,
+    rgba(90, 125, 188, 0.05) 0 0.25em 1em; */
+  border-radius: 10px;
+}
+
+.recipe-card {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  padding: 1rem;
+  gap: 0.8rem;
+  border: 1px solid gainsboro;
+  border-radius: 5px;
+  margin: 1rem 0;
+}
+
+.recipe-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.add-recipe {
+  display: flex;
+  justify-content: center;
+}
+
+button,
+.recipe-create {
+  padding: 5px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0 1px 4px;
+  border: none;
+  border-radius: 5%;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+/* Recipe details */
+.recipe-details-container {
+  max-width: 70rem;
+  margin: 2rem auto;
+  padding: 3rem 1.5rem;
+}
+
+.title {
+  text-align: center;
+}
+
+.public-private {
+  margin: 16px;
+  padding: 10px;
+}
+
+.detail {
+  padding: 10px;
+}
+
+.recipe-details {
+  display: grid;
+  grid-template-columns: 4fr 2fr;
+  margin: 2rem;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: 200px 200px;
+  justify-content: space-evenly;
+}
+
+.toggle {
+  display: flex;
+  gap: 10px;
+}
+
+.private {
+  position: relative;
+  top: 4px;
+}
+
+/* Add recipe */
+
+.new-recipe {
+  display: flex;
+  justify-content: center;
+}
+
+.input {
+  width: 250px;
+  height: 25px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  margin: 7px 0;
+}
+
+.recipe-create {
+  margin: 2rem 0;
+}
+
+.back-button {
+  margin: 2rem;
+}
