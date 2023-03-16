@@ -12,6 +12,25 @@ a {
   margin: 1rem;
 }
 
+/* login */
+
+.new-session {
+  display: flex;
+  justify-content: center;
+}
+
+.remember {
+  margin: 1rem 0;
+}
+
+.shared {
+  padding: 2rem 0;
+  color: blue;
+  text-decoration: underline;
+}
+
+/* sign up */
+
 /* Recipes views */
 
 .recipes-container {
@@ -48,7 +67,9 @@ a {
 
 button,
 .recipe-create,
-.food-create {
+.food-create,
+.log-in,
+.sign-up {
   padding: 5px;
   box-shadow: rgba(0, 0, 0, 0.16) 0 1px 4px;
   border: none;
@@ -134,8 +155,9 @@ button,
   width: 250px;
   height: 25px;
   font-family: 'Montserrat', sans-serif;
-  font-size: 10px;
+  font-size: 15px;
   margin: 7px 0;
+  color: lightblue;
 }
 
 .recipe-create {
