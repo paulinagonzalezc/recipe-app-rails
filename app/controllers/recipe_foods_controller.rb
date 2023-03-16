@@ -67,10 +67,10 @@ class RecipeFoodsController < ApplicationController
   end
 
   def authorize_recipe_access
-    if @recipe.present? && current_user != @recipe.user
-      flash[:alert] = 'You are not authorized to modify this recipe'
-      redirect_to recipe_path(id: @recipe.id)
-    end
+    return unless @recipe.present? && current_user != @recipe.user
+
+    flash[:alert] = 'You are not authorized to modify this recipe'
+    redirect_to recipe_path(id: @recipe.id)
   end
 
   def recipe_food_params
