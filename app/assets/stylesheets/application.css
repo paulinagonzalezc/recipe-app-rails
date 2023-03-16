@@ -161,11 +161,16 @@ button,
 }
 
 .recipe-create {
-  margin: 2rem 0;
+  margin: 10px 0;
 }
 
-.back-button {
-  margin: 2rem;
+.back-button,
+.back-recipe {
+  margin: 0 2rem;
+}
+
+.public {
+  margin: 2rem 0;
 }
 
 /* Recipe details table */

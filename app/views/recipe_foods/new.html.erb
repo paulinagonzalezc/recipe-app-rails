@@ -1,15 +1,15 @@
-<button><%= link_to 'Back to recipe', recipe_path(@recipe), class:"btn btn-primary form-control2" %></button>
-<h1 class='title'> Add food to Recipe</h1>
+<%= link_to 'Back to recipe', recipe_path(@recipe), class:"btn btn-primary back-recipe" %>
+<h2 class='title'> Add food to Recipe</h2>
 <div class="recipe-food-new">
   <%= form_with url: recipe_recipe_foods_path, scope: :recipe_food do |form| %>
     <div>
       <%= form.label :food, class:"form-label" %><br>
-      <%= form.select :food_id, current_user.foods.collect {|food| [food.name, food.id]},{ include_blank: true} , class:"input" %><br>
+      <%= form.select :food_id, current_user.foods.collect {|food| [food.name, food.id]},{ include_blank: true} , class:"form-control" %><br>
     </div>
 
     <div>
       <%= form.label :quantity, class:"form-label" %><br>
-      <%= form.number_field :quantity ,  class:"input" , required: true, placeholder: '1',  min: 1%><br>
+      <%= form.number_field :quantity ,  class:"form-control" , required: true, placeholder: '1',  min: 1%><br>
     </div>
 
     <div class="recipe-food-btns">
