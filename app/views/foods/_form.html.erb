@@ -2,6 +2,7 @@
   <div class="new-food">
   <%= form_with url: foods_path, scope: :food do |form| %>
     <div >
+    <%= form.hidden_field :user_id, value: current_user.id %>
     <%= form.label :Name %><br>
     <%= form.text_field :name, class: "form-control", require: true %>
     </div>
