@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "RecipeFoods", type: :request do
+RSpec.describe 'RecipeFoods', type: :request do
   include Devise::Test::IntegrationHelpers
   let(:user) { User.create(name: 'Kolly', email: 'kolly@mail.com', password: 'password') }
   let(:food) { user.foods.create(name: 'apple', measurement_unit: 'kg', price: '4', user_id: user.id) }

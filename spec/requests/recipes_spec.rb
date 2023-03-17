@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Recipes", type: :request do
+RSpec.describe 'Recipes', type: :request do
   include Devise::Test::IntegrationHelpers
 
   let(:user) { User.create(name: 'Motsow', email: 'abc@mail.com', password: 'password') }
@@ -22,7 +22,6 @@ RSpec.describe "Recipes", type: :request do
     it 'respond to html' do
       expect(response.content_type).to include 'text/html'
     end
-
   end
 
   describe 'GET /new' do

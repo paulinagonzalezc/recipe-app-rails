@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Registrations", type: :feature do
+RSpec.feature 'Registrations', type: :feature do
   it 'can enter a name and receive a greeting' do
     visit new_user_registration_path
     expect(page).to have_content 'Sign up'
