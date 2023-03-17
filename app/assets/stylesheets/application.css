@@ -218,3 +218,10 @@ td.modify-remove {
   display: flex;
   justify-content: center;
 }
+
+/* Shopping List */
+
+.shopping-dets {
+  display: flex;
+  justify-content: space-evenly;
+}

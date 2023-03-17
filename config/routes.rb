@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   
   post 'recipes/:id/toggle', to: 'recipes#toggle', as: :toggle_recipe
 
+  get '/shopping_list', to: 'shopping_list#index'
+
   resources :users do
     resources :foods, only: [:index, :show, :new, :create, :destroy]
   end
