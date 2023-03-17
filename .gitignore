@@ -32,7 +32,7 @@
 
 # Database
 
-/config/database.yml
+# /config/database.yml
 
 # Node_modules
 node_modules/
