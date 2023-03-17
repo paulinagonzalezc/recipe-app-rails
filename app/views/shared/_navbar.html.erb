@@ -11,13 +11,14 @@
             <%= link_to 'My recipes', recipes_path,  class: 'btn btn-outline-primary' %> 
             <%= link_to 'My foods', foods_path,  class: 'btn btn-outline-primary' %> 
             <%= link_to 'Create new recipe', new_recipe_path,  class: 'btn btn-outline-primary' %> 
-            <%= link_to 'Public recipes', public_recipes_path,  class: 'btn btn-outline-primary' %> 
-            <%= button_to 'sign out', destroy_user_session_path, method: :delete, class: 'btn btn-outline-danger' %> 
+            <%= link_to 'Public recipes', public_recipes_path,  class: 'btn btn-outline-primary' %>
+            <%= link_to "Shopping list", shopping_list_path, class: 'btn btn-outline-primary' %>
+            <%= button_to 'Sign out', destroy_user_session_path, method: :delete, class: 'btn btn-outline-danger' %> 
           </li>
         <%else%>
         <li class="nav-item">
-        <%= link_to 'sign up', new_user_registration_path,  class: 'btn btn-outline-primary' %> 
-        <%= link_to 'sign in', new_user_session_path,  class: 'btn btn-outline-primary' %> 
+          <%= link_to 'Sign up', new_user_registration_path,  class: 'btn btn-outline-primary' %> 
+          <%= link_to 'Sign in', new_user_session_path,  class: 'btn btn-outline-primary' %> 
         </li>
         <%end%>
       </ul>

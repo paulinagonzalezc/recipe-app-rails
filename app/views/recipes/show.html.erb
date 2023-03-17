@@ -16,8 +16,7 @@
   </div>
 
   <div class="buttons">
-    <%# link_to "Generate shooping list", shoppinglist_index_path(recipe_id: @recipe.id) %>
-    <button>Generate Shopping List</button>
+    <button><%= link_to "Generate shopping list", shopping_list_path%></button>
     <button class="recipe_btn"><%= link_to 'Add ingredient', new_recipe_recipe_food_path(@recipe.id) %></button>
   </div>
 
