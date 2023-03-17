@@ -146,7 +146,8 @@ button,
 
 /* Add recipe */
 
-.new-recipe {
+.new-recipe,
+.new-food {
   display: flex;
   justify-content: center;
 }
