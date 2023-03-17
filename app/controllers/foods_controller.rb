@@ -22,9 +22,12 @@ class FoodsController < ApplicationController
   end
 
   def destroy
-    @food.destroy
-    respond_to do |format|
-      format.html { redirect_to foods_url, notice: 'Food was successfully destroyed.' }
+    @food = current_user.foods.find(params[:id])
+    if @food.destroy
+      redirect_to foods_path, notice: 'Food was deleted successfully'
+    else
+      flash.now[:alert] = @food.errors.full_messages.first if @food.errors.any?
+      render :index, status: 400
     end
   end
 
